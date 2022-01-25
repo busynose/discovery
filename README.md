@@ -9,11 +9,10 @@
 参考文档：http://172.16.50.203:8090/pages/viewpage.action?pageId=42842892
 ## demo
 ```js
-const Discovery = require("../dist/discovery.js");
-
-let Net = require("../dist/discovery.js")
+const Discovery = require("@busynose/discovery");
 
 let discoverInstance = new Discovery()
 
 discoverInstance.searchMachine();
+
 ```
