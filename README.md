@@ -15,4 +15,7 @@ let discoverInstance = new Discovery()
 
 discoverInstance.searchMachine();
 
+setInterval(() => {
+    console.log(discoverInstance.getDeviceNets());
+}, 1000);
 ```

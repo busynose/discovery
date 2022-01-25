@@ -30,17 +30,21 @@ interface deviceNet {
 module.exports = class Discovery {
   tcpServer: any;
   localNets: string[];
-  deviveNets: deviceNet;
+  deviceNets: deviceNet;
 
   constructor() {
     this.tcpServer = null;
     this.localNets = [];
-    this.deviveNets = {wlan: [], eth: []};
+    this.deviceNets = {wlan: [], eth: []};
     this.init();
   }
 
   init() {
     this.startServer();
+  }
+
+  getDeviceNets() : deviceNet{
+    return this.deviceNets;
   }
 
   startServer() {
@@ -79,14 +83,14 @@ module.exports = class Discovery {
         for (let address of addresses) {
           if (isValidIP(address)) {
             if (net.indexOf("wlan") > -1 ) {
-              this.deviveNets.wlan.push(address);
+              this.deviceNets.wlan.push(address);
             } else if(net.indexOf("eth") > -1 ){
-              this.deviveNets.eth.push(address);
+              this.deviceNets.eth.push(address);
             }
           }
         }
     });
-    console.log("设备列表：", this.deviveNets);
+    console.log("设备列表：", this.deviceNets);
   }
 
   getNetList() {
