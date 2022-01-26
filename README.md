@@ -9,7 +9,7 @@
 参考文档：http://172.16.50.203:8090/pages/viewpage.action?pageId=42842892
 ## demo
 ```js
-const Discovery = require("@busynose/discovery");
+const Discovery = require("@makeblock/discovery");
 
 let discoverInstance = new Discovery()
 

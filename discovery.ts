@@ -18,8 +18,8 @@ interface nInterface {
 }
 
 interface deviceNet {
-  wlan: string[]
-  eth: string[]
+  wlan: Set<string>
+  eth:  Set<string>
 }
 
 // 扫描局域网设备方案：
@@ -35,7 +35,7 @@ module.exports = class Discovery {
   constructor() {
     this.tcpServer = null;
     this.localNets = [];
-    this.deviceNets = {wlan: [], eth: []};
+    this.deviceNets = {wlan: new Set(), eth: new Set()};
     this.init();
   }
 
@@ -83,9 +83,9 @@ module.exports = class Discovery {
         for (let address of addresses) {
           if (isValidIP(address)) {
             if (net.indexOf("wlan") > -1 ) {
-              this.deviceNets.wlan.push(address);
+              this.deviceNets.wlan.add(address);
             } else if(net.indexOf("eth") > -1 ){
-              this.deviceNets.eth.push(address);
+              this.deviceNets.eth.add(address);
             }
           }
         }

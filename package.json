@@ -1,6 +1,6 @@
 {
-  "name": "@busynose/discovery",
-  "version": "1.0.1",
+  "name": "@makeblock/discovery",
+  "version": "1.0.2",
   "description": "",
   "main": "./lib/discovery.js",
   "scripts": {
